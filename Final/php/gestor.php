@@ -61,17 +61,19 @@ require_once"php/usuarios.php";
 				$tipo = "x";
 
 
+			// Cabecera
+			echo "<div class='w3-container w3-padding-64  w3-grayscale-min w3-center' id='wedding' style='background-color:#9fd8fb;'>
+						  <div class='w3-content'>
+						    <h1 class='w3-text-grey'><b>Final Programación 3</b></h1>
+						  </div>
+						</div>";
+	
 			switch($tipo[0])
 			{
 			
 				case "x":
 
 				echo "
-						<div class='w3-container w3-padding-64  w3-grayscale-min w3-center' id='wedding' style='background-color:#9fd8fb;'>
-						  <div class='w3-content'>
-						    <h1 class='w3-text-grey'><b>Final Programación 3</b></h1>
-						  </div>
-						</div>			
 						<div class='w3-container w3-padding-64  w3-grayscale-min w3-left' id='weddin3g' style='background-color:#fb9fcd>
 						  <div class='w3-content'>
 						    <div class='w3-row'>
