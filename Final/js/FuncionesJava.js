@@ -1,29 +1,57 @@
 function Login()
 {
 
-  // var pagina = "nexo.php";
-  // var mail = $("#mail").val();
-  // var pass = $("#pass").val();
+  var pagina = "nexo.php";
+  var mail = $("#mail").val();
+  var pass = $("#pass").val();
 
-  //   $.ajax({
-  //       type: 'POST',
-  //       url: pagina,
-  //       dataType: "text",
-  //       data: {queHago: "login" , num1: num1 , num2: num2 },
-  //       async: true
-  //       })
-  //   	.then( 
-  //   		function(respuesta) 
-  //   		{
-  //               $("#container").html("Resultado: "+respuesta);
-  //   		}, 
-  // 		function(respuesta) { alert( "Error" ); }
-		// );
+    $.ajax({
+        type: 'POST',
+        url: pagina,
+        dataType: "text",
+        data: {queHago: "login" , mail: mail , pass: pass },
+        async: true
+        })
+    	.then( 
+    		function(respuesta) 
+    		{
 
-    $("#container_body").load("frmLogin");
+    		}, 
+      function(respuesta) { 
+
+                          }
+		);
+
+      location.href='index.php';
+
+
 }
 
-function LoadButtonHeader()
+function LogOut()
 {
-      $("#container_header").html("<input type='button' onclick='Login()' name= 'login' id = 'login' value = 'Login'>");
+
+  var pagina = "nexo.php";
+
+    $.ajax({
+        type: 'POST',
+        url: pagina,
+        dataType: "text",
+        data: {queHago: "logOut" },
+        async: true
+        })
+      .then( 
+        function(respuesta) 
+        {
+
+        }, 
+      function(respuesta) { 
+                           
+                          }
+    );
+
+  location.href='index.php';
+
+
+
 }
+
