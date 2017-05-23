@@ -13,11 +13,14 @@ function BorrarCookie()
       .then( 
         function(respuesta) 
         {alert("Se borro Cookie")
+          location.href='index.php';
         }, 
       function(respuesta) { 
 
                           }
     );
+
+
 
 }
 

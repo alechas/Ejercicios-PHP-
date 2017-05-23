@@ -31,22 +31,23 @@ require_once"usuarios.php";
 				break;
 
 				case "c":
-					echo "<a href='#home' style='width:50%' class='w3-bar-item w3-button'>Home</a>
-    					  <a href='#us' style='width:50%' class='w3-bar-item w3-button'>Jane & John</a>";
+					echo "<a href='#ejer' style='width:20%' class='w3-bar-item w3-button'>Ejercicios</a>
+    					  <a href='#listado' style='width:20%' class='w3-bar-item w3-button'>Listado</a>
+    					  <a href='#about' style='width:20%' class='w3-bar-item w3-button'>Presentación</a>";
 
 				break;
 
 				case "a":
-					echo "<a href='#home' style='width:20%' class='w3-bar-item w3-button'>Home</a>
-    					  <a href='#us' style='width:20%' class='w3-bar-item w3-button'>Jane & John</a>
-    					  <a href='#wedding' style='width:20%' class='w3-bar-item w3-button'>Wedding</a>
-    					  <a href='#curse' style='width:20%' class='w3-bar-item w3-button'>Curse</a>
-    					  <a href='#rsvp' style='width:20%' class='w3-bar-item w3-button w3-hover-black'>RSVP</a>";
+					echo "<a href='#ejer' style='width:20%' class='w3-bar-item w3-button'>Ejercicios</a>
+    					  <a href='#alta' style='width:20%' class='w3-bar-item w3-button'>Cargar material</a>
+    					  <a href='#listado' style='width:20%' class='w3-bar-item w3-button'>Listado</a>
+    					  <a href='#fac' style='width:20%' class='w3-bar-item w3-button w3-hover-black'>Facturado</a>
+    					  <a href='#about' style='width:20%' class='w3-bar-item w3-button'>Presentación</a>";
 				break;
 
 				case "v":
-					echo "<a href='#home' style='width:50%' class='w3-bar-item w3-button'>Home</a>
-    					  <a href='#rsvp' style='width:50%' class='w3-bar-item w3-button w3-hover-black'>RSVP</a>";
+					echo "<a href='#ejer' style='width:20%' class='w3-bar-item w3-button'>Ejercicios</a>
+    					  <a href='#alta' style='width:20%' class='w3-bar-item w3-button'>Cargar material</a>";
 
 				break;
 			}
@@ -130,16 +131,21 @@ require_once"usuarios.php";
 
 				case "a":
 					echo "
-						<header class='w3-display-container w3-wide bgimg w3-grayscale-min' id='home'>
-						  <div class='w3-display-middle w3-text-white w3-center'>
-						    <h1 class='w3-jumbo'>Jane & John</h1>
-						    <h2>Are getting married</h2>
-						    <h2><b>17.07.2017</b></h2>
+						<header class='w3-display-container w3-wide bgimg w3-grayscale-min' id='ejer'>
+						  <div class='w3-display-middle w3-text-white '>
+						    <h1 class='w3-padding-64'>Ejercicios</h1>
+<ul >1- crear la clase en PHP llamada “login.PHP” , con los metodos necesarios para validar los datos ingresados por el form login y que sean validados con los datos del archivo “usuario.txt”, los datos en el archivo son los siguientes
+'comp@comp.com', '123', 'comprador'
+'admin@admin.com', '321', 'administrador'
+'vend@vend.com', '321', 'vendedor’
+<li>a. (2 puntos)Validar que el campo mail sea un mail y que la clave sea un numero de cuatro dígitos y de tipo password. </li><li>b. (0.5 puntos) Una vez iniciada MOSTRAR el nombre del usuario en algún lugar siempre visible de la web. </li><li>c. (0.5 puntos)Crear tres botones para ingresar como cualquiera los tres tipos usuario sin teclear sus datos . </li><li>d. (0.5 puntos)Guardar en una cookie el ultimo ingresado y mostrarlo en el form login </li><li>e. (1.5 puntos)un boton que me borre las cookie.
+. </li></ul><li>2- Crear el ABM de Materiales de construcción, <li>a. (1 punto) código auto incremental, nombre ,Precio,tipo(solido o liquido) </li><li>b. Se debe crear la clase MATERIALES con los métodos para el ABM </li><li>c. (8puntos total )Crear el WebService que realice las operaciones del ABM usando la clase MATERIALES <br>i. (2 punto) alta <br>ii. (2 punto) baja <br>iii. (2 punto )listado. <br>iv. (2 puntos) modificacion</il></ul>
+NOTA: Utilizar Ajax y Json en toda la aplicación.
 						  </div>
 						</header>";
 
 				echo "
-						<div class='w3-container w3-padding-64 w3-pale-red w3-grayscale-min' id='us'>
+						<div class='w3-container w3-padding-64 w3-pale-red w3-grayscale-min' id='alta'>
 						  <div class='w3-content'>
 						    <h1 class='w3-center w3-text-grey'><b>Jane & John</b></h1>
 						    <img class='w3-round w3-grayscale-min' src='/w3images/wedding_couple2.jpg' style='width:100%;margin:32px 0'>
@@ -152,7 +158,7 @@ require_once"usuarios.php";
 						</div>";
 
 				echo "
-						<div class='w3-display-container bgimg2' id='curse'>
+						<div class='w3-display-container bgimg2' id='listado'>
 						  <div class='w3-display-middle w3-text-white w3-center'>
 						    <h1 class='w3-jumbo'>You Are Invited</h1><br>
 						    <h2>Of course..</h2>
@@ -160,7 +166,7 @@ require_once"usuarios.php";
 						</div>";
 
 				echo "
-						<div class='w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center' id='wedding'>
+						<div class='w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center' id='fac'>
 						  <div class='w3-content'>
 						    <h1 class='w3-text-grey'><b>THE WEDDING</b></h1>
 						    <img class='w3-round-large w3-grayscale-min' src='/w3images/wedding_location.jpg' style='width:100%;margin:64px 0'>
@@ -180,7 +186,7 @@ require_once"usuarios.php";
 						</div>";
 
 				echo "
-						<div class='w3-container w3-padding-64 w3-pale-red w3-center w3-wide' id='rsvp'>
+						<div class='w3-container w3-padding-64 w3-pale-red w3-center w3-wide' id='about'>
 						  <h1>HOPE YOU CAN MAKE IT!</h1>
 						  <p class='w3-large'>Kindly Respond By January, 2017</p>
 						  <p class='w3-xlarge'>
