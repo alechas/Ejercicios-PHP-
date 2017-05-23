@@ -8,7 +8,7 @@ session_start();
 <!-- JS Files -->
 <script src="js/jquery.tools.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-<script type="text/javascript" src="FuncionesJava.js"></script>
+<script type="text/javascript" src="js/FuncionesJava.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +32,7 @@ p {line-height: 2}
   <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
     <?php 
       require_once"php\gestor.php";
+      //require_once"/home/u862485186/public_html/php/gestor.php";
       Gestor::CargarBotonera();
     ?>
   </div>
@@ -40,6 +41,7 @@ p {line-height: 2}
 <!-- Cargar secciones -->
     <?php 
       require_once"php\gestor.php";
+      //require_once"/home/u862485186/public_html/php/gestor.php";
       Gestor::CargarSecciones();
     ?>
 
@@ -71,9 +73,11 @@ p {line-height: 2}
   <!--<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>   -->
 <p align="center">Usuario <?php 
                                       require_once"php\gestor.php";
+                                      //require_once"/home/u862485186/public_html/php/gestor.php";
                                       Gestor::LogOut();
                                       ?>
-                                        
+        <button onclick='BorrarCookie()' class='w3-button w3-round w3-blue w3-opacity w3-hover-opacity-off' style='padding:3px 53px'>Borrar Cookie</button>
+  
                                       </p>
 </footer>
 <div class="w3-hide-small" style="margin-bottom:32px"> </div>

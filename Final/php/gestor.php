@@ -1,5 +1,7 @@
 <?php
-require_once"php/usuarios.php";
+require_once"usuarios.php";
+//require_once"/home/u862485186/public_html/php/usuarios.php";
+
 
 	/**
 	Clase de carga de botones
@@ -29,8 +31,8 @@ require_once"php/usuarios.php";
 				break;
 
 				case "c":
-					echo "<a href='#home' style='width:25%' class='w3-bar-item w3-button'>Home</a>
-    					  <a href='#us' style='width:25%' class='w3-bar-item w3-button'>Jane & John</a>";
+					echo "<a href='#home' style='width:50%' class='w3-bar-item w3-button'>Home</a>
+    					  <a href='#us' style='width:50%' class='w3-bar-item w3-button'>Jane & John</a>";
 
 				break;
 
@@ -43,8 +45,8 @@ require_once"php/usuarios.php";
 				break;
 
 				case "v":
-					echo "<a href='#home' style='width:25%' class='w3-bar-item w3-button'>Home</a>
-    					  <a href='#rsvp' style='width:25%' class='w3-bar-item w3-button w3-hover-black'>RSVP</a>";
+					echo "<a href='#home' style='width:50%' class='w3-bar-item w3-button'>Home</a>
+    					  <a href='#rsvp' style='width:50%' class='w3-bar-item w3-button w3-hover-black'>RSVP</a>";
 
 				break;
 			}
@@ -52,7 +54,15 @@ require_once"php/usuarios.php";
 
 	public static function CargarSecciones()
 	{
+		$tipo = array();
+		$mail = "";
 
+		// Cargo el mail
+			if (isset($_COOKIE['MisUsuariosCK']))
+				$mail = "value = " . $_COOKIE['MisUsuariosCK'];
+
+
+		// Cargo el tipo
 			if (isset($_SESSION['tipo'])) 
 			{	
 					$tipo = $_SESSION['tipo'];
@@ -78,9 +88,13 @@ require_once"php/usuarios.php";
 						  <div class='w3-content'>
 						    <div class='w3-row'>
 						      <div class='w3-half'>
-						    	<input type = 'text' placeholder= 'Ingrese mail' id='mail'><br>
-        						<input type='password' name= 'pass' id = 'pass' placeholder= 'Ingrese contraseña'  id='pass'><br>
-						    	<button onclick='Login()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:5px 62px'>Ingresar</button>
+						    	<input type = 'email' placeholder= 'Ingrese mail' id='mail' $mail ><br>
+        						<input type='password' name= 'pass' id = 'pass' placeholder= 'Ingrese contraseña' maxlength=4 id='pass'><br>
+						    	<button onclick='Login()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:3px 62px'>Ingresar</button><br>
+						    	<p style='color:white;'>Cargar datos</p>
+						    	<button onclick='LoginC()' class='w3-button w3-round w3-green w3-opacity w3-hover-opacity-off' style='padding:3px 50px'>Comprador</button><br>
+						    	<button onclick='LoginA()' class='w3-button w3-round w3-yellow w3-opacity w3-hover-opacity-off' style='padding:3px 41px'>Administrador</button><br>
+						    	<button onclick='LoginV()' class='w3-button w3-round w3-blue w3-opacity w3-hover-opacity-off' style='padding:3px 56px'>Vendedor</button><br>
 
 						      </div>
 						    </div>
@@ -222,21 +236,29 @@ require_once"php/usuarios.php";
 				break;
 
 				case "c":
-				echo "Comprador <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:5px 62px'>LogOut</button>";
+				echo $_SESSION['mail']." <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:3px 53px'>LogOut</button>";
 
 				break;
 
 				case "a":
-				echo "Administrador <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:5px 62px'>LogOut</button>";
+				echo $_SESSION['mail']." <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:3px 53px'>LogOut</button>";
 			
 				break;
 
 				case "v":
-				echo "Vendedor <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:5px 62px'>LogOut</button>";
+				echo $_SESSION['mail']." <button onclick='LogOut()' class='w3-button w3-round w3-red w3-opacity w3-hover-opacity-off' style='padding:3px 53px'>LogOut</button>";
 			
 				break;
 			}
 
+		}
+
+		public static function CargarMailCookie()
+		{
+			if(isset($_COOKIE['MisUsuariosCK']))
+        		  echo "value = ". $_COOKIE['MisUsuariosCK'];
+        	else
+        		echo "value = prueba";
 		}
 	}
 
