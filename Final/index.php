@@ -8,7 +8,7 @@ session_start();
 <!-- JS Files -->
 <script src="js/jquery.tools.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-<script type="text/javascript" src="js/FuncionesJava.js"></script>
+<script type="text/javascript" src="FuncionesJava.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,12 +24,13 @@ p {line-height: 2}
     background-size: cover;
     background-color: #FDC57E;
 }
-.bgimg2 {background-image: url("/w3images/flowers.jpg")}
+.bgimg2 {background-image: url("imagenes/herramientas.jpg")}
+.bgimg3 {background-image: url("imagenes/herramienta_carga.jpg")}
 </style>
 <body style="background-color:#FDC57E;">
 <!-- Caarga de botonera -->
 <div class="w3-bottom w3-hide-small">
-  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+  <div class="w3-bar w3-white w3-hover-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
     <?php 
       require_once"php\gestor.php";
       //require_once"/home/u862485186/public_html/php/gestor.php";
