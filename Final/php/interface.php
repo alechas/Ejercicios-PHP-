@@ -1,25 +1,93 @@
 <?php 
-      
-    require_once "nusoap.php";
-    require_once "materiales.php";
-      
-    function CargarProducto() 
-    {
-      	materiales::InsertarMaterial("WebService",123,"solido");
+    
+    //error_reporting(0);
+    // require_once(APPPATH."/libraries/WSDLCreator.php");
+    // require_once"materiales.php";
 
+    // // require_once('nusoap.php');
+    // // $wsdl = "materiales.php";
+    // // $soap = new SoapServer($wsdl);
+    // // $soap->setClass('Material');
+    // // $soap->handle();
+    // require_once("wsdl2php/WSDLCreator.php");
+    // $test = new WSDLCreator("Material", "http://localhost:8080/Ejercicios-PHP-/Final/php/interface.php");
+    // $test->addFile("materiales.php");
+    // $test->setClassesGeneralURL("http://localhost:8080/Ejercicios-PHP-/Final/");
+    // $test->addURLToClass("Material", "http://localhost:8080/Ejercicios-PHP-/Final/php/materiales.php");
+    // $test->ignoreMethod(array("Material"=>"Material"));
+    // $test->createWSDL();
+    // $test->saveWSDL(dirname(__FILE__)."/miclase.wsdl", false);
+    
+    // incluir libreria
+    require_once('lib/nusoap.php');
+    require_once('materiales.php');
+
+    // Crear un objeto de servicio
+    $server = new nusoap_server;
+
+    // Registrar la ruta (URL) donde será llamado
+    $server->configureWSDL('GestorMateriales','http://localhost:8080/Ejercicios-PHP-/Final/php/interface.php?wsdl');
+
+    // Crear un metodo o varios para el servicio
+    // function saludar($usuario)
+    // {
+    //     return "Hola ".$usuario;
+    // }
+
+    // // Registrar el metodo y la forma de uso del metodo
+    // $server->register('saludar',
+    //     array('usuario' =>  'xsd:string'),
+    //     array('return'  =>  'xsd:string'),
+    //     '', // namespace Default
+    //     '', // soapaction
+    //     '', // style
+    //     '', // use
+    //     'Saluda'); // Descripcion
+
+
+    function CargarMaterial($nombre)//,$precio,$tipo)
+    {
+        Material::InsertarMaterial($nombre,$precio,$tipo);
+        return 'Carga finalizada';
     }
 
-    $server = new soap_server();
-    $server->configureWSDL("interface", "urn:interface");
+    // Registrar el metodo y la forma de uso del metodo
+    $server->register('CargarMaterial',
+        array('nombre' =>  'xsd:string','precio' =>  'xsd:string','tipo' =>  'xsd:string'),
+        array('return'  =>  'xsd:string'),
+        '', // namespace Default
+        '', // soapaction
+        '', // style
+        '', // use
+        'Crea/Modifica un material'); // Descripcion
 
-    $server->register("CargarProducto",
-        array(),
-        "urn:interface",
-        "urn:interface#CargarProducto",
-        "rpc",
-        "encoded",
-        "Carga un Material");
+    function BorrarMaterial($idMat)
+    {
+        Material::BorrarMaterial($idMat);
+    }
+    $server->register('BorrarMaterial',
+        array('idMat' =>  'xsd:string'),
+        array('return'  =>  'xsd:string'),
+        '', // namespace Default
+        '', // soapaction
+        '', // style
+        '', // use
+        'Borra un material'); // Descripcion
 
-    $server->service($HTTP_RAW_POST_DATA);
+    function ModificarMaterial($idMat, $nombre, $precio, $cantidad, $tipo)
+    {
+        Material::ModificarMaterial($idMat, $nombre, $precio, $cantidad, $tipo);
+    }
+    $server->register('ModificarMaterial',
+        array('idMat' =>  'xsd:string','nombre' =>  'xsd:string','precio' =>  'xsd:string','cantidad' =>  'xsd:string','tipo' =>  'xsd:string'),
+        array('return'  =>  'xsd:string'),
+        '', // namespace Default
+        '', // soapaction
+        '', // style
+        '', // use
+        'Borra un material'); // Descripcion
+
+        $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
+        $server->service($HTTP_RAW_POST_DATA);
 
 ?>

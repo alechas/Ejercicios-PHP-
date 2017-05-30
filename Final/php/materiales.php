@@ -10,51 +10,7 @@ class Material
 	public $cantidad;
 	public $tipo;
 
-
- //  	public function GetPatente()
-	// {
-	// 	return $this->patente;
-	// }
-
- //  	public function GetMarca()
-	// {
-	// 	return $this->marca;
-	// }
-
- //  	public function GetColor()
-	// {
-	// 	return $this->color;
-	// }
-
- //  	public function GetEstado()
-	// {
-	// 	return $this->estado;
-	// }
-
-	// public function __construct($pa,$ma,$co,$es)
-	// {
-	// 	$this->patente = $pa;
-	// 	$this->marca = $ma;
-	// 	$this->color = $co;
-	// 	$this->patende = $es;
-	// }
-
-	// public static function BorrarMaterial($patente)
-	//  {
-
-	// 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-	// 		$consulta =$objetoAccesoDato->RetornarConsulta("
-	// 			delete 
-	//			from Materials 				
-	// 			WHERE patente=:patente");	
-	// 			$consulta->bindValue(':patente',$patente, PDO::PARAM_INT);		
-	// 			$consulta->execute();
-	// 			//return $consulta->rowCount();
-
-	//  }
- 
-	
-	 public static function InsertarMaterial($nombre,$precio,$tipo)
+	public static function InsertarMaterial($nombre,$precio,$tipo)
 	 {
 
 	 			//Obtengo todos los Materials
