@@ -26,6 +26,9 @@ p {line-height: 2}
 }
 .bgimg2 {background-image: url("imagenes/herramientas.jpg")}
 .bgimg3 {background-image: url("imagenes/herramienta_carga.jpg")}
+.div_lista{ background-image: url("imagenes/WoodenHedge.jpg");
+            background-repeat: repeat;
+  }
 </style>
 <body style="background-color:#FDC57E;">
 <!-- Caarga de botonera -->

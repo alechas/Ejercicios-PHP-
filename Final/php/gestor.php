@@ -159,7 +159,7 @@ NOTA: Utilizar Ajax y Json en toda la aplicación.
 						  </div>
 						</div>";
 
-				echo "<div class='w3-display-container bgimg2' id='listado'>
+				echo "<div class='w3-display-container div_lista' id='listado'  >
 							<br>
 							<p align='center'>
 							<button onclick='Listar()' class='w3-button w3-round w3-red w3-opacity w3-hover-black w3-hover-opacity-off' style='padding:3px 53px'>Listar</button>
