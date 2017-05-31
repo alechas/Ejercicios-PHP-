@@ -1,23 +1,5 @@
 <?php 
-    
-    //error_reporting(0);
-    // require_once(APPPATH."/libraries/WSDLCreator.php");
-    // require_once"materiales.php";
 
-    // // require_once('nusoap.php');
-    // // $wsdl = "materiales.php";
-    // // $soap = new SoapServer($wsdl);
-    // // $soap->setClass('Material');
-    // // $soap->handle();
-    // require_once("wsdl2php/WSDLCreator.php");
-    // $test = new WSDLCreator("Material", "http://localhost:8080/Ejercicios-PHP-/Final/php/interface.php");
-    // $test->addFile("materiales.php");
-    // $test->setClassesGeneralURL("http://localhost:8080/Ejercicios-PHP-/Final/");
-    // $test->addURLToClass("Material", "http://localhost:8080/Ejercicios-PHP-/Final/php/materiales.php");
-    // $test->ignoreMethod(array("Material"=>"Material"));
-    // $test->createWSDL();
-    // $test->saveWSDL(dirname(__FILE__)."/miclase.wsdl", false);
-    
     // incluir libreria
     require_once('lib/nusoap.php');
     require_once('materiales.php');
@@ -45,10 +27,9 @@
     //     'Saluda'); // Descripcion
 
 
-    function CargarMaterial($nombre)//,$precio,$tipo)
+    function CargarMaterial($nombre,$precio,$tipo)
     {
         Material::InsertarMaterial($nombre,$precio,$tipo);
-        return 'Carga finalizada';
     }
 
     // Registrar el metodo y la forma de uso del metodo
